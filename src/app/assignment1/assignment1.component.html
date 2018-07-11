@@ -1,0 +1,21 @@
+<p>
+  child title is: {{title}}
+  <button (click)="sendMessage()">Send Message</button>
+</p>
+<div>
+  <button type="submit" (click)="showInfo()">ShowData</button>
+  <table>
+    <tr>
+      <th>StudentId</th>
+      <th>StudentName</th>
+      <th>StudentAge</th>
+    </tr>
+    <tr *ngFor="let student of studentinfo">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+    </tr>
+  </table>
+</div>
+<app-subcomponent1></app-subcomponent1><br>
+<app-subcomponent2></app-subcomponent2>
