@@ -34,6 +34,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Assignment7Component } from './assignment7/assignment7.component';
 import {MatTableModule} from '@angular/material/table';
+import { Assignment8Component } from './assignment8/assignment8.component';
 export const AssignmentRoute : Routes = [
 { path: 'assign1', component: Assignment1Component },
 { path: 'assign2', component: Subcomponent1Component },
@@ -81,7 +82,8 @@ export const assign4: Route =
     Assignment6Component,
     CompSuccessDirective,
     CompFailureDirective,
-    Assignment7Component ],
+    Assignment7Component,
+    Assignment8Component ],
   imports: [
     BrowserModule,
     HttpClientModule,
