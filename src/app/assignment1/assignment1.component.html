@@ -1,5 +1,70 @@
+  <div class="container">
+     <div> <!-- *ngIf="!show" -->
+    <b>1. Create basic angular application without editing anything and try to understand project structure. Create simple angular project using below command as<strong>ng new FirstApp</strong><br>
+ It will create one folder named as FirstApp
+ Open that project in Visual Studio Code
+ Invoke command to start server as 
+  ng serve
+ Now try to run our application using chrome browser as &nbsp;
+  <strong> http://localhost:4200</strong>
+ After execution it will display default angular application.<br>
+ Now find out the meaning of files used in this project that we discussed in previous sessions.</b><br>
+ <b> Create Angular application which will display “ Infosss " as header. 
+  Follow all the above steps to create new project and update index.html file to display desired string</b>
+  </div>
+  <button type="submit"  class="btn btn-outline-primary" (click)="showSoln1()">solution</button>
+  <div *ngIf="ques1">
+    <h4><p>Welcome to {{title}}</p></h4>
+  </div>
+  <div>
+      <b>2.Create Angular application which will Display “Infosys pvt ltd” by updating app component.  
+      App component is our root component and change the existing name characteristics of app.component.ts  file and change it to the “Infosys” 
+      Create Angular application which will Display Header as “Infosys” and subheader as “Join us to show your Potential”. 
+      For this you have to update app.component.html file and headers as h1 and h2.</b>
+  </div>
+  <button type="submit"  class="btn btn-outline-primary"  (click)="showSoln2()">solution</button>
+  <div *ngIf="ques2">
+      <h1>{{title1}}</h1>
+      <h2>{{title2}}</h2>
+    </div>
+    <div>
+      <b> 3.Rewrite above application and use inline html contents. 
+          For that purpose we have to update the decorator (@Component) in app.component.ts file. Remove templateUrl and add template. 
+          After that add our contents from html file after that template name in (` `). </b>
+    </div>
+    <button type="submit"  class="btn btn-outline-primary" (click)="showSoln3()">solution</button>
+    <div *ngIf="ques3">
+        <h4>@Component<br>
+          selector: 'app-assignment1',<br>
+          template:`<h3>code write here using template</h3>`,<br>
+          styleUrls: ['./assignment1.component.css']
+        </h4>
+    </div>
+    <div>
+        <b> 4.Create angular application which will demonstrate the concept of string interpolation. 
+            To demonstrate the string interpolation we can create one characteristics in class as “Name” which should be assigned to some string as 
+           Name = "String interpolation is working" 
+           Now use this characteristics in html file using the concept of string interpolation as {{Name}} </b>
+      </div>
+      <button type="submit"  class="btn btn-outline-primary" (click)="showSoln4()">solution</button>
+      <div *ngIf="ques4">
+         Name:&nbsp;&nbsp;{{Name}}
+      </div>
+  </div>
+  <!-- <div style="text-align:center">
+    <h1>
+      Welcome to {{ title | uppercase }}
+    </h1><br>
+    <h2>
+    {{ title2}} {{ title2.length }}
+    </h2>
+    Name:<input type="text" class="c">
+    <button type="submit" (click)="ClickMe()">ClickMe</button>
+  </div> -->
+  <!-- Message: {{message}}
+  <app-assignment1  (messageEvent)="receiveMessage($event)"><app-assignment1>
 <p>
-  child title is: {{title}}
+  child title is: {{title}} <br>
   <button (click)="sendMessage()">Send Message</button>
 </p>
 <div>
@@ -16,6 +81,4 @@
       <td>{{student.age}}</td>
     </tr>
   </table>
-</div>
-<app-subcomponent1></app-subcomponent1><br>
-<app-subcomponent2></app-subcomponent2>
+</div> -->

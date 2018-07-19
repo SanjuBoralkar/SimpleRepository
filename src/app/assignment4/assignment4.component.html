@@ -1,0 +1,103 @@
+<div class="container">
+    <div> <!-- *ngIf="!show" -->
+        <b>1.Create Angular Application which contains two components and display the contents of that two components after the root components. Expected output of our application should be 
+            <strong>Root component</strong> 
+            <strong>Inside First Component</strong> 
+            <strong>Inside Second component</strong> 
+            and Create new components using ng generate command and add its markups in app.component.html file.
+            Create the application which contains two components as First and second Display specific text from both the component. Text of first component should be displayed in Red colour and for second component use Blue colour.  
+            Follow same steps as the above application. As we want to specify the colours we have to write the colours specification in appropriate .css file of each component. </b>
+       </div>
+       <button type="submit" class="btn btn-outline-primary" (click)="showSoln1()">solution</button>
+       <div *ngIf="ques1">
+         Message: {{message}}
+     <app-childcomponent (messageEvent)="receiveMessage($event)"></app-childcomponent>
+      <p>
+        child title is: {{title}} <br>
+        <button (click)="sendMessage()">Send Message</button>
+      </p>
+       </div>
+       <div>
+        <b> 2. Create the angular application which contains one component. that component contains one button. Our application access JSON file which is stored on server side. That JSON file contains information of students. After button press we have to fetch data from JSON file and display on web page.  
+            We have to create .JSON file and store that file into asset folder. On button click event we have to fetch data from that file. To solve this question please refer HttpDataFetch application.  </b>
+       </div>
+       <button type="submit" class="btn btn-outline-primary" (click)="showSoln2()">solution</button>
+       <div *ngIf="ques2">
+        <button type="submit" (click)="showInfo()" class="btn btn-outline-dark">ShowData</button>
+        <table>
+          <tr>
+            <th>StudentId</th>
+            <th>StudentName</th>
+            <th>StudentAge</th>
+          </tr>
+          <tr *ngFor="let student of studentinfo">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+          </tr>
+        </table>
+       </div>
+       <div>
+        <b> 2. Create the angular application which contains one component. that component contains one button. Our application access JSON file which is stored on server side. That JSON file contains information of students. After button press we have to fetch data from JSON file and display on web page.  
+            We have to create .JSON file and store that file into asset folder. On button click event we have to fetch data from that file. To solve this question please refer HttpDataFetch application.  </b>
+       </div>
+       <button type="submit" class="btn btn-outline-primary" (click)="showSoln2()">solution</button>
+       <div *ngIf="ques2">
+           <div class="row">
+               <div class="col-md-4">
+                    <button type="submit" class="btn btn-outline-dark" (click)="showinformation()">show</button>
+                    <app-subcom1></app-subcom1>
+               </div>
+               <div class="col-md-4">
+                    <button type="submit" class="btn btn-outline-dark" (click)="showinformation1()">show</button>
+                    <app-subcom2></app-subcom2>
+               </div>
+               <div class="col-md-4">
+                    <button type="submit" class="btn btn-outline-dark" (click)="showinformation2()">show</button>
+                    <app-subcom3></app-subcom3>
+               </div>
+            </div> 
+       </div>
+       <div> <!-- *ngIf="!show" -->
+        <b>3.Create angular application which contains three routing navigations as Operating Systems, Programming Languages, Databases.  
+            Display specific information when user click any option as 
+             1. Operating systems : Display names of operating systems 
+             2. Programming languages : Display names of languages 
+             3. Databases : Display names of databases  
+             create application with —routing option. Create three components to display specific informations. Add names of that components in routes array. .  
+            Follow same steps as the above application. As we want to specify the colours we have to write the colours specification in appropriate .css file of each component. </b>
+       </div>
+       <button type="submit" class="btn btn-outline-primary" (click)="showSoln3()">solution</button>
+       <div *ngIf="ques3">
+          <!-- <nav>
+              <div class="dropdown-menu" >
+                  <a class="dropdown-item" routerLink="/route1">Operatin System</a>
+                  <a class="dropdown-item" routerLink="/route2">Programming Languages</a>
+                  <a class="dropdown-item" routerLink="/route3">DataBases</a>
+                  </div>
+                </nav> -->
+                <!-- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/route1">Operatin System</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/route2" >Programming Languages</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/route3">DataBases</a>
+                    </li>
+                  </ul> -->
+                  <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" [routerLink]="['assign4/route1']">Operatin System</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['assign4/route2']">Programming Languages</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['assign4/route3']">DataBases</a>
+                      </li>
+                    </ul>
+                  <router-outlet></router-outlet>
+       </div>
+    </div>

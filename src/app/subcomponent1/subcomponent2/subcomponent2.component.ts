@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentDetailService} from '../student-detail.service';
+// import {StudentDetailService} from '../student-detail.service';
 @Component({
   selector: 'app-subcomponent2',
   templateUrl: './subcomponent2.component.html',
@@ -7,12 +7,12 @@ import {StudentDetailService} from '../student-detail.service';
 })
 export class Subcomponent2Component implements OnInit {
 
-  constructor(private studService:StudentDetailService) { }
+  // constructor(private studService:StudentDetailService) { }
   public StudentInfo:any=[];
 
-  showData(){
-    return this.studService.displayInfo().subscribe(data=>this.StudentInfo=data);
-  }
+  // showData(){
+  //   return this.studService.displayInfo().subscribe(data=>this.StudentInfo=data);
+  // }
 
   ngOnInit() {
   }

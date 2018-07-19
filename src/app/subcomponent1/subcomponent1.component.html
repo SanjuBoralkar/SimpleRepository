@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <button type="submit" (click)="showData()">ShowDataComponent1</button>
   <table>
     <tr>
@@ -10,4 +10,43 @@
       <td>{{student.name}}</td>
     </tr>
   </table>
+</div> -->
+<div class="container">
+
+  <div>
+    <b>1.Create application which will display one textfield and one static text “infosys” on page. 
+        Follow all the steps to create new project and update app.component.html file. 
+        In this file add code to display one static text and one text field.<br>
+        Create application which will display one textfield and one static text “Infosys” on page. Colour of that textfield should be blue.  
+        Follow same steps as above application. 
+        As we want to specify colour add the specification in app.component.css file and see the changes. </b>
+  </div>
+  <button type="submit" class="btn btn-outline-primary" (click)="showSoln1()">solution</button>
+  <div style="text-align:center" *ngIf="ques1">
+  <h2>
+   {{ title2 }}
+  </h2>
+  Name:<input type="text" class="c"> 
+  </div>
+
+  <div>
+      <b>2.Create same angular application as above but instead of using app.component.html and app.component.css file separately add its contents in inline format inside app.component.ts file. 
+          Same as the inline html we have to use the inline css contents in app.component.ts file. </b>
+    </div>
+    <button type="submit" class="btn btn-outline-primary" (click)="showSoln2()">solution</button>
+    <div style="text-align:center" *ngIf="ques2">
+       write in styleUrl:&nbsp;{{str}}
+    </div>
+
+  <div>
+      <b> 3.Create angular application which add new component inside root component which will display “Inside Sub Component”. 
+          We have to create the normal angular project. As we want to add new component we can use below command as 
+         ng generate component MarvellousComp After this command new folder gets created as MarvellousComp under app folder. which contains multiple files as .html, .css, .ts. Now we can add desired text in .html file. 
+         As we want to add this component in our root component use its markup as  
+        <strong>{{str1}}</strong></b>
+    </div>
+    <button type="submit" class="btn btn-outline-primary" (click)="showSoln3()">solution</button>
+    <div style="text-align:center" *ngIf="ques3">
+        <app-subcomponent2></app-subcomponent2>
+    </div>
 </div>

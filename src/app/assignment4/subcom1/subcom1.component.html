@@ -1,11 +1,12 @@
 <div>
-  <button type="submit" (click)="showData()">ShowDataComponent1</button>
   <table>
     <tr>
+      <th>StudentId</th>
       <th>StudentName</th>
       <th>StudentAge</th>
     </tr>
-    <tr *ngFor="let student of StudentInfo">
+    <tr *ngFor="let student of studentinfo">
+      <td>{{student.id}}</td>
       <td>{{student.name}}</td>
       <td>{{student.age}}</td>
     </tr>

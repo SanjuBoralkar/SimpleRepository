@@ -1,0 +1,112 @@
+<div class="container">
+    <div> 
+      <b>1.Create angular application which creates login form which accepts Username and Password from user. When user clicks submit button username and password should be stored in typescripts class characteristics. 
+          Use appropriate form components using angular Material Designing.</b>
+    </div>
+      <button type="submit" class="btn btn-outline-primary" (click)="showSoln1()">solution</button>
+    <div *ngIf="ques1">
+      <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="UserName">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password">
+          </mat-form-field>
+      </div>
+        <button mat-button  color="accent">Submit</button>
+    </div>
+    <div>
+        <b>2.Create angular application which creates one form for the travelling portal. In that portal we have to display names of cities as a list and user will select any specific city. 
+            We have to accept start date and end date of vacation from user with its necessary details. 
+            Use appropriate form components using angular Material Designing.</b>
+      </div>
+        <button type="submit" class="btn btn-outline-primary" (click)="showSoln2()">solution</button>
+        <div *ngIf="ques2">
+            <mat-form-field>
+                <mat-select placeholder="Select Ciry">
+                  <mat-option *ngFor="let city of cities" [value]="city.value">
+                    {{city.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a start-date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker1" placeholder="Choose a end-date">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+        </div>
+        <div>
+            <b>3. Create angular application which contains one form which accept car details(Name, type, color ,Car number, number of seats) from user.  
+            Provide submit button at the end. Car number is compulsory filed in our form. 
+            Use appropriate form components using angular Material Designing.</b>
+          </div>
+            <button type="submit" class="btn btn-outline-primary" (click)="showSoln3()">solution</button>
+          <div *ngIf="ques3">
+          <div class="example-container">
+                <mat-form-field>
+                  <input matInput placeholder="CarName">
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-select placeholder="Select type">
+                      <mat-option *ngFor="let type of types" [value]="type.value">
+                        {{type.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field><br>
+                <mat-form-field>
+                  <input matInput placeholder="color of car">
+                </mat-form-field><br>
+                <mat-form-field>
+                    <input matInput placeholder="car number">
+                  </mat-form-field><br>
+                  <mat-form-field>
+                      <input matInput placeholder="number of seats">
+                    </mat-form-field>
+            </div>
+              <button mat-button  color="accent">Submit</button>
+          </div>
+          <div>
+              <b>4. Create angular application which displays one table which contains names of five books with its author name, number of pages in it and its price. 
+                  Use appropriate form components using angular Material Designing. </b>
+            </div>
+              <button type="submit" class="btn btn-outline-primary" (click)="showSoln4()">solution</button>
+            <div *ngIf="ques4">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                      <th mat-header-cell *matHeaderCellDef> No. </th>
+                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                      <th mat-header-cell *matHeaderCellDef> Weight </th>
+                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+              </div>
+</div>
