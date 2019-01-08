@@ -1,3 +1,71 @@
-<p>
-  assignment8 works!
-</p>
+<div class="container">
+  <div>
+    <b>1.Create angular application which contains list of items that we can add items and remove items.</b>
+  </div>
+    <button type="submit" class="btn btn-outline-primary" (click)="showSoln1()">solution</button>
+  <div *ngIf="ques1">
+      <div class="main">
+          <h1>Item List</h1>
+          <div class="addItem">
+          <input placeholder="Add Item" class="addText" [(ngModel)]="newItem">
+          <button (click)="pushItem()">Add</button>
+          </div>
+          <ul>
+            <li *ngFor="let i of items" let ind = "index">
+              {{i}}
+              <span (click)="removeItem()">X</span>
+            </li>
+          </ul>
+        </div>        
+      </div>
+      <div> 
+          <b>2.Create angular application which shows the uses of pipe.</b>
+        </div>
+          <button type="submit" class="btn btn-outline-primary" (click)="showSoln2()">solution</button>
+        <div *ngIf="ques2">
+           <h3>{{names | uppercase}}</h3> <!-- use pipe for uppercase -->
+            <h3>{{names | lowercase}}</h3> <!-- use pipe for lowercase -->
+            
+            <h3>{{day}}</h3> <!-- without usiing pipe --> 
+            <h3>{{day | date}}</h3> <!-- use pipe for set date format -->
+
+            <h3>{{day | date:'shortDate'}}</h3> <!-- use pipe pass parameter for set shortdate format -->
+            <h3>{{day |  date:'fullDate'}}</h3> <!-- use pipe pass parameter for set fulldate format -->
+
+            <h3>{{day |  date:'fullDate'| uppercase}}</h3> <!-- use pipe pass parameter for set fulldate format -->
+
+            <h3>{{arr | sortpipe : 'ascending' }}</h3> <!-- use pipe pass parameter for set fulldate format -->
+            </div>
+            
+    <div> 
+      <b>3.Create angular application which shows the use of modal.</b>
+    </div>
+      <button type="submit" class="btn btn-outline-primary" (click)="showSoln3()">solution</button>
+    <div *ngIf="ques3">
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <mat-form-field>
+              <input matInput placeholder="userName">
+          </mat-form-field>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-light" (click)="submitInfo()">Submit</button>
+          <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+        </div>
+      </ng-template>
+      <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Large modal</button>
+        </div>
+        <div> 
+          <b>4.Create angular application which shows the defaultdate.</b>
+        </div>
+          <button type="submit" class="btn btn-outline-primary" (click)="showSoln4()">solution</button>
+        <div *ngIf="ques4">
+         
+    </div>
+

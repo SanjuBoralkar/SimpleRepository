@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {StudentDetailService} from '../app/student-detail.service';
 import { AppComponent } from './app.component';
 import { Assignment1Component } from './assignment1/assignment1.component';
@@ -35,14 +36,17 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Assignment7Component } from './assignment7/assignment7.component';
 import {MatTableModule} from '@angular/material/table';
 import { Assignment8Component } from './assignment8/assignment8.component';
+import{SortPipe} from './assignment8/sortpipe';
+import {MatIconModule} from '@angular/material/icon';
 export const AssignmentRoute : Routes = [
-{ path: 'assign1', component: Assignment1Component },
-{ path: 'assign2', component: Subcomponent1Component },
+{ path: 'assign1', component:  Assignment1Component },
+{ path: 'assign2', component:  Subcomponent1Component },
 { path: 'assign3', component:  Assignment3Component },
 { path: 'assign4', component:  Assignment4Component },
 { path: 'assign5', component:  Assignment5Component },
 { path: 'assign6', component:  Assignment6Component },
 { path: 'assign7', component:  Assignment7Component },
+{ path: 'assign8', component:  Assignment8Component },
 { path: '**', component:  PagenotfoundComponent }
 ]
 // export const Assignment4 : Routes = [
@@ -62,6 +66,7 @@ export const assign4: Route =
 }
 @NgModule({
   declarations: [
+    SortPipe,
     AppComponent,
     Assignment1Component,
     Subcomponent1Component,
@@ -83,14 +88,16 @@ export const assign4: Route =
     CompSuccessDirective,
     CompFailureDirective,
     Assignment7Component,
-    Assignment8Component ],
+    Assignment8Component],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(AssignmentRoute ),
+    NgbModule.forRoot(),
     // RouterModule.forRoot(Assignment4),
     RouterModule.forRoot([assign4], { useHash: true }),
     FormsModule,CommonModule,MatButtonModule, MatCheckboxModule,MatFormFieldModule,MatInputModule,BrowserAnimationsModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,MatTableModule,
+    MatIconModule,NgbModule
   ],
   providers: [StudentDetailService],
   bootstrap: [AppComponent]
