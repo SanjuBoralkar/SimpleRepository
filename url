@@ -1,1 +1,61 @@
 https://id.atlassian.com/signup/invite?application=bitbucket&continue=https%3A//bitbucket.org/socialauth/login/atlassianid/?chosen_aid%3Dsanjay.barolkar.ext%2540yesbank.in%26next%3Dhttps%253A%252F%252Fbitbucket.org%252Finvitations%252Faccount%252F1SKLLYFIgfMWj2DgIQCiPGRL4IGNI967&signature=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhY2NvdW50IiwiaWF0IjoxNTk2NjIwOTg3LCJleHAiOjE1OTcyMjU3ODcsInNjb3BlIjoiaW52aXRlIiwic3ViIjoic2FuamF5LmJhcm9sa2FyLmV4dEB5ZXNiYW5rLmluIn0.maDcQjVTDBKbbkph-heM4Anma2t2hYrahaSlLV8z2Zw&infoCode=invitedUser&source=a1ece0d337deaac61592478f9b0ab9a7
+
+
+function execute(){
+    
+    var accts = [];
+    
+    if(apiResponse.statusCode !=200) {
+        errorMessage = 'Dear Customer! Some technical error occurred. Please try after sometime.';
+        errorCode = apiResponse.statusCode;
+        return;
+    }else{
+    
+       
+        var accountStatus = Properties.getValue("CSSP_PLATFORM_LEVEL_VALIDATIONS","CUST_ACCOUNT_STATUS_BEFORE_OTP");    
+        for(var i=0;i<accountDetails.length;i++){
+        // account status = 8 is for active account(dormant account validation)   
+            if(accountDetails[i].accountStatus == accountStatus){
+
+                 isActiveAccount = true;
+            }else {
+                isActiveAccount = false;
+               
+                errorMessage = "Dear Customer,\
+                                one or more accounts linked to your Customer ID are/is not active.\
+                                  Kindly activate account(s) before proceeding with this request";
+            
+                return;
+            }
+
+         
+        //validating account customer relationship. Not allowing authorized signatories to proceed.
+        var confProperty = (srType == 1001) ? 'CUST_RELATIONSHIP_TYPES_BEFORE_OTP_FD' : 'CUST_RELATIONSHIP_TYPES_BEFORE_OTP';
+            
+        var custRelation = Properties.getValue("CSSP_PLATFORM_LEVEL_VALIDATIONS", confProperty);
+        var accountcustRel = accountDetails[i].accountCustomerRelationship.toUpperCase();
+        var allowedCustRelation = custRelation.split(',');
+           
+          if(allowedCustRelation.indexOf(accountcustRel) >= 0) {
+                  isValidRelation = true;
+          } else {
+              
+             isValidRelation = false;
+             errorMessage = "Dear Customer, you are not not eligible to proceed with this \
+                         service request on YES Service Portal. \
+                         Request you to kindly contact Branch or RM for assistance.";
+              
+             if(accountcustRel =='GUR') {
+                errorMessage = "Dear Customer,\
+                                Currently Guardians are not allowed to proceed with this service request on YES Service Portal. Request you to kindly contact Branch or RM for assistance.";
+                return;
+            } else if(accountcustRel =='NOM') {
+                errorMessage = "Dear Customer,\
+                                Currently  Nominees are not allowed to proceed with this service request on YES Service Portal. Request you to kindly contact Branch or RM for assistance.";
+                return;
+            }
+
+         }
+        }
+    }
+}
