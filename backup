@@ -1,0 +1,53 @@
+select 
+(select state_name from country_master where name = '#nomineeState#') nomState,
+(select state_name from country_master where name = '#guardianState#') guardState
+------------------------
+select 
+(select city_name from country_master where city_name = '#nomineeCity#') nomCity,
+(select city_name from country_master where city_name = '#guardianCity#') guardCity
+-------------------
+select 
+(select id from country_master where country_iso_code = '#nomineeCountry#') nomCountry,
+(select id from country_master where country_iso_code = '#guardianCountry#') guardCountry
+--------------------
+function execute(){
+    
+    if(!tempNomineeDetails.nomineeName =="" && !tempNomineeDetails.relationToAccHolder =="" && 
+    !tempNomineeDetails.dateOfBirth =="" && !tempNomineeDetails.addressLine1 =="" &&
+    !tempNomineeDetails.townOrCity =="" && !tempNomineeDetails.state =="" && 
+    !tempNomineeDetails.country ==""){
+    
+        nomineeDetails.nomineeName = tempNomineeDetails.nomineeName;
+        nomineeDetails.relationToAccHolder = tempNomineeDetails.relationToAccHolder;
+        nomineeDetails.dateOfBirth = tempNomineeDetails.dateOfBirth;
+        nomineeDetails.addressLine1 = tempNomineeDetails.addressLine1;
+        nomineeDetails.townOrCity = tempNomineeDetails.townOrCity;
+        nomineeDetails.state = tempNomineeDetails.state;
+        nomineeDetails.country = tempNomineeDetails.country;
+        nomineeDetails.addressLine2 = tempNomineeDetails.addressLine2;
+        nomineeDetails.addressLine3 = tempNomineeDetails.addressLine3;
+        nomineeDetails.zipCode = tempNomineeDetails.zipCode;
+        nomineeDetails.phoneNumber = tempNomineeDetails.phoneNumber;
+        nomineeDetails.mobileNumber = tempNomineeDetails.mobileNumber;
+        nomineeDetails.emailId = tempNomineeDetails.emailId;
+    }
+    
+      if(!tempGuardianDetails.guardianName =="" && !tempGuardianDetails.relationToNominee =="" && 
+        !tempGuardianDetails.addressLine1 =="" && !tempGuardianDetails.townOrCity =="" &&
+        !tempGuardianDetails.state =="" && !tempGuardianDetails.country ==""){
+    
+        guardianDetails.guardianName = tempGuardianDetails.guardianName;
+        guardianDetails.relationToNominee = tempGuardianDetails.relationToNominee;
+        guardianDetails.addressLine1 = tempGuardianDetails.addressLine1;
+        guardianDetails.addressLine2 = tempGuardianDetails.addressLine2;
+        guardianDetails.addressLine3 = tempNomineeDetails.addressLine3;
+        guardianDetails.townOrCity = tempGuardianDetails.townOrCity;
+        guardianDetails.state = tempGuardianDetails.state;
+        guardianDetails.country = tempGuardianDetails.country;
+        guardianDetails.zipCode = tempGuardianDetails.zipCode;
+        guardianDetails.phoneNumber = tempGuardianDetails.phoneNumber;
+        guardianDetails.mobileNumber = tempGuardianDetails.mobileNumber;
+        guardianDetails.emailId = tempGuardianDetails.emailId;
+    }
+        
+}----------------------
